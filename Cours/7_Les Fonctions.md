@@ -59,3 +59,6 @@ message = "je suis le message"
 def affiche():
     print(message) # provoque une erreur car message n'est pas défini dans la fonction
 ```
+
+
+[Cours suivant](../Cours/8_Portes%20logiques.md)

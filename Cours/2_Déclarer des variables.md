@@ -35,3 +35,5 @@ monEntier = 35
 monNumerique = 35.0
 monBooleen = False
 ```
+
+[Cours suivant](../Cours/3_Operations.md)

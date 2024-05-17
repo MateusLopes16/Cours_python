@@ -19,3 +19,5 @@ from premier_fichier import premiere_fonction # importe la fonction premiere_fon
 
 premiere_fonction # execute la fonction premiere_fonction du fichier premier_fichier
 ```
+
+[Cours suivant](../Cours/10_Les%20types%20complexes.md)

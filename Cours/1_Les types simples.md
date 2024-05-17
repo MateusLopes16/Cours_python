@@ -9,3 +9,4 @@ En Python, on a différentes entités appelées variables qui vont déterminer d
 
 Ces quatre types représentent les types communs, appelés types primitifs.
 
+[Cours suivant](../Cours/2_Déclarer%20des%20variables.md)

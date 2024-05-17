@@ -57,3 +57,6 @@ if x == 10:
     print("x est 10") # dans la condition, executer seulement si x = 10
 print("x est 10") # hors de la condition, executer a chaque fois
 ```
+
+[Page d'exercices](../Exercices/Exercices_conditions_simples.md) | 
+[Cours suivant](../Cours/7_Les%20Fonctions.md)
