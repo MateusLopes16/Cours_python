@@ -32,6 +32,22 @@ def multiplie(x, y):
 affiche(premier_message)
 ```
 
+### Le retour
+
+Une fonction peut renvoyer des valeurs au code principal en utilisant le mot-clé ``return``.
+
+Chaque fonction qui renvoie une valeur doit se voir attribuer une variable pour pouvoir l'utiliser par la suite.
+
+```python
+premier_message = "Je suis le message"
+
+def ajouteUnPoint(message):
+    return message + "."
+
+nouveau_message = ajouteUnPoint(premier_message)
+print(nouveau_message) # affiche 'Je suis le message.'
+```
+
 ### Remarques : 
 
 - Il est important de déclarer la fonction avant de l'appeler.

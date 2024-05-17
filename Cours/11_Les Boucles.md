@@ -107,3 +107,7 @@ Globalement on peut effectuer les mêmes actions avec les deux boucles, cependan
 - Préférable lorsque vous devez itérer jusqu'à ce qu'une condition soit remplie.
 - Utile lorsque le nombre d'itérations n'est pas connu à l'avance.
 - Plus flexible car vous pouvez contrôler les conditions d'arrêt de manière plus dynamique.
+
+Remarques : 
+
+- Certaines boucles peuvent être inifies si elles n'arrivent pas à leur condition d'arret, il faur y faire attention pour éviter que ca arrive
