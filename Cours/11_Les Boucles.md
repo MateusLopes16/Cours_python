@@ -52,6 +52,17 @@ for element in maListe:
 # 4
 # 5
 
+# Itération sur une liste
+maListe = [1, 2, 3, 4, 5]
+for i in range(len(liste)):
+    print(i)
+# Affiche :
+# 1
+# 2
+# 3
+# 4
+# 5
+
 # Itération sur une chaîne de caractères
 maChaine = "Python"
 for caractere in maChaine:

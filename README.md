@@ -1,36 +1,68 @@
 # Cours Python
 
-On 17 cours sur les notions importantes de python
-chacune d'elle contient une page de cours et potentiellement des exercices
+Ce cours présente 17 leçons sur les notions importantes de Python. Chacune d'elles comprend une page de cours et potentiellement des exercices. Tout le cours est disponible à l'adresse [suivante](https://github.com/Cmoitchoupi/Cours_python).
 
-# Prerequis
+## Prérequis
 
-Installer python
+### Installation de Python
 
-- ouvrir microsoft store 
-- chercher python
-- installer la derniere version
+Pour installer Python :
 
-Editeur de code
+1. Ouvrez le Microsoft Store.
+2. Recherchez Python.
+3. Installez la dernière version disponible.
 
-Il existe differents edteurs de code, on peut aussi coder sur bloc-note 
-Ici nous utilisons Visual Studio Code (VSCode)
+### Éditeur de code
 
-Installation VSCode
+Il existe différents éditeurs de code. Vous pouvez également coder sur Bloc-notes ou sur un terminal. Dans ce cours, nous utilisons Visual Studio Code (VSCode).
 
-Utilisation VSCode
+#### Installation de VSCode
 
-- intaller l'extention `python` dans l'onglet prevu sur la gauche
+Pour installer VSCode :
 
-vous pourrez ensuite creer des fichiers grace a l'explorateur de ficheir sur la gauche, pour creer un fichier python on ajoute au nom du fichier l'extention .py
+1. Rendez-vous sur [le site officiel](https://code.visualstudio.com/download) et suivez les instructions.
 
-pour executer le code sur le haut a droite de la fenetre sur trouve un triangle run python code il suffit d'appuyer dessus pour lancer l'eecution 
-ou
-on utilise un terminal 
-en haut a gauche sur la barre doutils on clique sur terminal 
-nouveau terminal
-on entre python nom_fichier
-entree 
-le code s'execute
+### Récupération du projet
 
+Vous avez deux choix pour récupérer le projet :
 
+#### Option 1 : Télécharger le zip
+
+1. Rendez-vous à l'adresse ci-dessus.
+2. Cliquez sur le bouton "Code" et sélectionnez "Download ZIP".
+3. Décompressez le dossier dans le dossier cible.
+
+#### Option 2 : Utiliser Git
+
+1. Installez Git.
+2. Ouvrez VSCode
+
+⚠️ Il est important de lancer VSCode apres l'installation de Git sinon il peut ne pas être détecté
+
+3. Placez-vous dans le dossier cible : cliquez sur "Fichier" dans la barre d'outils, puis sur "Ouvrir dossier". 
+4. Ouvrez un terminal : cliquez sur "Terminal" dans la barre d'outils, puis sur "Nouveau terminal".
+5. Exécutez la commande 
+```bash
+git clone https://github.com/Cmoitchoupi/Cours_python.git
+```
+⚠️ cloner le projet va creer un nouveau dossier `Cours_python` a l'emplacement choisi
+
+6. Le projet sera cloné dans votre dossier.
+
+### Utilisation de VSCode
+
+1. Installez l'extension "Python" dans l'onglet prévu sur la gauche.
+
+Vous pourrez ensuite créer des fichiers grâce à l'explorateur de fichiers sur la gauche. Pour créer un fichier Python, ajoutez l'extension `.py` au nom du fichier.
+
+Pour visualiser un fichier .md :
+
+- Utilisez l'URL du projet pour le visualiser sur le Web.
+- Utilisez le raccourci `Ctrl + K`, relâchez, puis appuyez sur `V`.
+
+Pour exécuter le code :
+
+- Cliquez sur le bouton "Run Python code" en haut à droite de la fenêtre.
+- Utilisez un terminal : Entrez `python nom_fichier` et appuyez sur Entrée.
+
+N'hésitez pas à explorer le cours et à poser des questions si nécessaire !
