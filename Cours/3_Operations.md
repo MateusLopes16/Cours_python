@@ -63,5 +63,16 @@ resultat = a % b
 print(resultat)  # Affiche : 1
 ```
 
+### Puissance d'un nombre
+L'opérateur étoile étoile ``**`` renvoie le nombre à la puissance souhaitée.
+
+```python
+resultat = 10**5
+print(resultat)  # Affiche : 10000
+
+resultat = 3**2
+print(resultat)  # Affiche : 9
+```
+
 [Cours Précédent](../Cours/2_Déclarer%20des%20variables.md) | 
 [Cours suivant](../Cours/4_Operations%20sur%20chaines.md)

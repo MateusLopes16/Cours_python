@@ -61,4 +61,5 @@ def affiche():
 ```
 
 [Cours Précédent](../Cours/6_Conditions.md) | 
+[Page d'exercices](../Exercices/Exercices_fonctions.md) | 
 [Cours suivant](../Cours/8_Portes%20logiques.md)

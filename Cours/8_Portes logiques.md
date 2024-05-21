@@ -67,4 +67,5 @@ else:
 ```
 
 [Cours Précédent](../Cours/7_Les%20Fonctions.md) | 
+[Page d'exercices](../Exercices/Exercices_portes_logiques.md) | 
 [Cours suivant](../Cours/9_L'importation.md)
