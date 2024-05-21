@@ -112,4 +112,5 @@ Remarques :
 
 - Certaines boucles peuvent être inifies si elles n'arrivent pas à leur condition d'arret, il faur y faire attention pour éviter que ca arrive
 
+[Cours Précédent](../Cours/10_Les%20types%20complexes.md) | 
 [Cours suivant](../Cours/11_Les%20Boucles.md)

@@ -65,4 +65,5 @@ monDictionnaire.pop("age")  # Supprime la clé 'age' et sa valeur
 print(monDictionnaire)  # affiche {'nom': 'Alice', 'ville': 'Paris', 'profession': 'Ingénieure'}
 ```
 
+[Cours Précédent](../Cours/9_L'importation.md) | 
 [Cours suivant](../Cours/11_Les%20Boucles.md)

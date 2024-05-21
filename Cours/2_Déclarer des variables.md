@@ -35,5 +35,5 @@ monEntier = 35
 monNumerique = 35.0
 monBooleen = False
 ```
-
+[Cours Précédent](../Cours/1_Les%20types%20simples.md) | 
 [Cours suivant](../Cours/3_Operations.md)

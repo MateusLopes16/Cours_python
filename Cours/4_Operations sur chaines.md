@@ -61,4 +61,5 @@ print(f"Je m'appelle {nom} et j'ai {age} ans.")
 # Affiche : Je m'appelle Alice et j'ai 30 ans.
 ```
 
+[Cours Précédent](../Cours/3_Operations.md) | 
 [Cours suivant](../Cours/5_Les%20Fonctions%20natives.md)

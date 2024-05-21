@@ -66,4 +66,5 @@ else:
     print("x") # ne va pas s'executer car on a rempli une condition précédente
 ```
 
+[Cours Précédent](../Cours/7_Les%20Fonctions.md) | 
 [Cours suivant](../Cours/9_L'importation.md)

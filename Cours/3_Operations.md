@@ -63,4 +63,5 @@ resultat = a % b
 print(resultat)  # Affiche : 1
 ```
 
+[Cours Précédent](../Cours/2_Déclarer%20des%20variables.md) | 
 [Cours suivant](../Cours/4_Operations%20sur%20chaines.md)
