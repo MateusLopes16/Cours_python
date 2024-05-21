@@ -1,10 +1,2 @@
-<details>
-  <summary>Afficher le code Python</summary>
-  
-  ```python
-  def affiche(message):
-      print(message)
-  
-  affiche("Bonjour, monde!")
-```
-</details>
+codingame
+jupyter
