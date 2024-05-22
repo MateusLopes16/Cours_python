@@ -66,4 +66,5 @@ print(monDictionnaire)  # affiche {'nom': 'Alice', 'ville': 'Paris', 'profession
 ```
 
 [Cours Précédent](../Cours/9_L'importation.md) | 
+EX | 
 [Cours suivant](../Cours/11_Les%20Boucles.md)

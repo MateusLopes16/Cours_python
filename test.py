@@ -1,7 +1,8 @@
-print("Veuillez entrer un nombre : ")
-nombre_choisis = input()
-
-if int(nombre_choisis) % 2 == 0:
-    print("Pair")
-else:
-    print("Impair")
+maPhrase = "Python est un langage de programmation"
+mot = ""
+for i in range(len(maPhrase)):
+    lettre = maPhrase[i]
+    mot += lettre 
+    if lettre == " " or i == len(maPhrase) - 1:
+        print(mot)
+        mot = "" 

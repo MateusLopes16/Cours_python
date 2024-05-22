@@ -78,3 +78,7 @@ print(est_multiple_borne_ext(-3, -5, 5))  # Affiche : False (-3 n'est pas multip
 print(est_multiple_borne_ext(25, -5, 5))  # Affiche : True (25 n'est pas multiple de 2 et est supérieur à 5)
 ```
 </details>
+
+
+[Retour au cours](../Cours/8_Portes%20logiques.md) | 
+[Cours Suivant](../Cours/9_L'importation.md)

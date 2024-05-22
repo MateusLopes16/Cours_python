@@ -1,4 +1,5 @@
-# Exercice 1
+# Feuille d'Exercices : Les conditions en python
+## Exercice 1
 
 Écrivez un programme qui prend un nombre entier en entrée de l'utilisateur et affiche "Pair" s'il est pair et "Impair" s'il est impair.
 
@@ -15,7 +16,7 @@ else:
 ```
 </details>
 
-# Exercice 2
+## Exercice 2
 
 Écrivez un programme qui prend un nombre entier en entrée de l'utilisateur et affiche "Positif" s'il est strictement positif, "Nul" s'il est nul et "Negatif" s'il est strictement négatif.
 
@@ -34,7 +35,7 @@ else:
 ```
 </details>
 
-# Exercice 3
+## Exercice 3
 
 Écrivez un programme qui prend deux nombres en entrée de l'utilisateur et affiche "Le premier nombre est plus grand" si le premier nombre est plus grand que le deuxième, "Le deuxième nombre est plus grand" s'il est plus petit, et "Les deux nombres sont égaux" s'ils sont égaux.
 
@@ -54,7 +55,7 @@ else:
 ```
 </details>
 
-# Exercice 4
+## Exercice 4
 
 Écrivez un programme qui prend deux nombres en entrée de l'utilisateur et affiche "Le premier nombre est divisible par le deuxième" si le premier nombre est divisible par le deuxième, et "Le premier nombre n'est pas divisible par le deuxième" sinon.
 

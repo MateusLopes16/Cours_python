@@ -87,3 +87,6 @@ print(estPossible(10, 0))  # Affiche : False
 ```
 </details>
 
+
+[Retour au cours](../Cours/7_Les%20Fonctions.md) | 
+[Cours Suivant](../Cours/8_Portes%20logiques.md)

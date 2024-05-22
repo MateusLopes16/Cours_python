@@ -40,4 +40,5 @@ La fonction précédente effectue les actions suivantes :
 Certaines fonctions récursives peuvent demander trop de ressources et de stockage d'informations en attendant la condition d'arrêt, ce qui peut entraîner une surcharge et un plantage du programme. Il est donc important de bien analyser et optimiser les fonctions récursives pour éviter ces problèmes potentiels.
 
 [Cours Précédent](../Cours/11_Les%20Boucles.md) | 
+EX | 
 [Cours suivant](../Cours/12_La%20récursivité.md)
