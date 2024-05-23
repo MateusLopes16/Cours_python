@@ -1,6 +1,6 @@
 # Cours Python
 
-Ce cours présente 17 leçons sur les notions importantes de Python. Chacune d'elles comprend une page de cours et potentiellement des exercices. Tout le cours est disponible à l'adresse [suivante](https://github.com/Cmoitchoupi/Cours_python).
+Ce cours présente 18 leçons sur les notions importantes de Python. Chacune d'elles comprend une page de cours et potentiellement des exercices. Tout le cours est disponible à l'adresse [suivante](https://github.com/Cmoitchoupi/Cours_python).
 
 ## Prérequis
 
@@ -15,7 +15,6 @@ Pour installer Python :
 ### Éditeur de code
 
 Il existe différents éditeurs de code. Vous pouvez également coder sur Bloc-notes ou sur un terminal. Dans ce cours, nous utilisons Visual Studio Code (VSCode).
-Pour la partie IA, on utilisera Jupyter Notebook
 
 #### Installation de VSCode
 
@@ -56,14 +55,20 @@ git clone https://github.com/Cmoitchoupi/Cours_python.git
 
 Vous pourrez ensuite créer des fichiers grâce à l'explorateur de fichiers sur la gauche. Pour créer un fichier Python, ajoutez l'extension `.py` au nom du fichier.
 
-Pour visualiser un fichier .md :
+Pour visualiser un fichier .md d'exercice ou de cours :
 
 - Utilisez l'URL du projet pour le visualiser sur le Web.
-- Utilisez le raccourci `Ctrl + K`, relâchez, puis appuyez sur `V`.
+
+ou
+
+- Selectionner le fichier que vous voulez visualiser, et utilisez le raccourci `Ctrl + K`, relâchez, puis appuyez sur `V`.
 
 Pour exécuter le code :
 
 - Cliquez sur le bouton "Run Python code" en haut à droite de la fenêtre.
+
+ou
+
 - Utilisez un terminal : Entrez `python nom_fichier` et appuyez sur Entrée.
 
 ## Organisation des Dossiers
@@ -83,4 +88,4 @@ Dans ce projet, nous avons trois dossiers principaux :
 - IA : Ce dossier contient tous les cours et feuilles de TP proposés par la ressource `"Base de l'IA"`.
 
 
-[Premier cours base Python](./Cours/1_Les%20types%20simples.md)
+[Premier cours base Python](./Cours_base_python/Cours/1_Les%20types%20simples.md)
