@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interface &#8212; v5 5 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=d5d7d944"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for Interface</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Interface">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface">[docs]</a>
+<span></span><span class="k">class</span> <span class="nc">Interface</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a text-based interface for managing tickets.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes an Interface instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+        
+<div class="viewcode-block" id="Interface.choose_option">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.choose_option">[docs]</a>
+    <span class="k">def</span> <span class="nf">choose_option</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a menu of options and waits for user input.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The user&#39;s selection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">1. Create a ticket&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Assign a ticket&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Close a ticket&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Search keyword&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Display issue from backlog&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Exit&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;7. Old Tickets&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;8. Closed Stats&quot;</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Enter your selection: &quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">val</span></div>
+
+    
+<div class="viewcode-block" id="Interface.print_one_ticket">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.print_one_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">print_one_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticket</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prints information about a single ticket.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ticket (dict): A dictionary representing the ticket.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ticket</span> <span class="o">==</span> <span class="p">{}):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid id: ticket not found&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ticket id: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;description: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;State: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Responsible: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;responsible&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Closed Date: &quot;</span><span class="p">,</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;closed_date&#39;</span><span class="p">])</span></div>
+
+        
+<div class="viewcode-block" id="Interface.raise_error">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.raise_error">[docs]</a>
+    <span class="k">def</span> <span class="nf">raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Raises an exception with the given message.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message (str): The error message.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Interface.display_issue_popup">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.display_issue_popup">[docs]</a>
+    <span class="k">def</span> <span class="nf">display_issue_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a message to the user.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message (str): The message to display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Interface.action_create_ticket">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.action_create_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_create_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prompts the user to enter ticket information.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: A tuple containing ticket information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID: &quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Description: &quot;</span><span class="p">)</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Type: &quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="nb">type</span></div>
+
+    
+<div class="viewcode-block" id="Interface.action_assign_ticket">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.action_assign_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_assign_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prompts the user to assign a ticket.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: A tuple containing ticket ID, assignee name, and state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID: &quot;</span><span class="p">)</span>
+        <span class="n">assign_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Assigned to: &quot;</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;State: &quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">id</span><span class="p">,</span> <span class="n">assign_name</span><span class="p">,</span> <span class="n">state</span></div>
+
+    
+<div class="viewcode-block" id="Interface.action_close_ticket">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.action_close_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_close_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prompts the user to enter the ID of the ticket to close.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The ID of the ticket to close.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID: &quot;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Interface.action_search_keyword">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.action_search_keyword">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_search_keyword</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prompts the user to enter a keyword to search for.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The keyword to search for.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Keyword: &quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Interface.display_old_open_tickets">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.display_old_open_tickets">[docs]</a>
+    <span class="k">def</span> <span class="nf">display_old_open_tickets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">three_days_old_tickets</span><span class="p">,</span> <span class="n">ten_days_old_tickets</span><span class="p">,</span> <span class="n">twenty_days_old_tickets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays tickets that are 3, 10, and 20 days old.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            three_days_old_tickets (list): A list of tickets that are 3 days old.</span>
+<span class="sd">            ten_days_old_tickets (list): A list of tickets that are 10 days old.</span>
+<span class="sd">            twenty_days_old_tickets (list): A list of tickets that are 20 days old.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tickets opened for 3 days with new state:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">three_days_old_tickets</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tickets opened for 10 days with assigned or analysis state:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">ten_days_old_tickets</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tickets opened for 20 days with any state:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">twenty_days_old_tickets</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span></div>
+
+            
+<div class="viewcode-block" id="Interface.display_closed_tickets_stats">
+<a class="viewcode-back" href="../Interface.html#Interface.Interface.display_closed_tickets_stats">[docs]</a>
+    <span class="k">def</span> <span class="nf">display_closed_tickets_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">three_days_closed_tickets</span><span class="p">,</span> <span class="n">between_three_ten_days_closed_tickets</span><span class="p">,</span> <span class="n">more_than_ten_days_closed_tickets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays statistics about closed tickets in a popup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            three_days_closed_tickets (list): A list of tickets closed within 3 days.</span>
+<span class="sd">            between_three_ten_days_closed_tickets (list): A list of tickets closed between 3 and 10 days.</span>
+<span class="sd">            more_than_ten_days_closed_tickets (list): A list of tickets closed after 10 days.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tickets closed within 3 days:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">three_days_closed_tickets</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tickets closed between 3 and 10 days:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">between_three_ten_days_closed_tickets</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tickets closed after 10 days:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">more_than_ten_days_closed_tickets</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span></div>
+</div>
+
+        
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">v5</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, mateus.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

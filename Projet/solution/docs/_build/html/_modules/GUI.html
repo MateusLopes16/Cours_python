@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUI &#8212; v5 5 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=d5d7d944"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for GUI</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">PySimpleGUI</span> <span class="k">as</span> <span class="nn">sg</span>
+<span class="kn">from</span> <span class="nn">Interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<div class="viewcode-block" id="GUI">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI">[docs]</a>
+<span class="k">class</span> <span class="nc">GUI</span><span class="p">(</span><span class="n">Interface</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a Graphical User Interface (GUI) for managing tickets.</span>
+
+<span class="sd">    Inherits from Interface class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        layout (list): A list containing the layout of the GUI.</span>
+<span class="sd">        window (PySimpleGUI.Window): A window object for the GUI.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a GUI instance with the layout and window.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Ticket Management System&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Create Ticket&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Assign Ticket&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Close Ticket&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Search Keyword&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Display Issue&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Exit&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Old Tickets&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Closed Ticket Stats&#39;</span><span class="p">)]</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;TMS GUI&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GUI.choose_option">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.choose_option">[docs]</a>
+    <span class="k">def</span> <span class="nf">choose_option</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays the GUI and waits for user input to choose an option.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string representing the chosen option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span><span class="p">,</span> <span class="s1">&#39;Exit&#39;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s1">&#39;6&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Create Ticket&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;1&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Assign Ticket&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;2&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Close Ticket&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;3&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Search Keyword&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;4&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Display Issue&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;5&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Old Tickets&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;7&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Closed Ticket Stats&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;8&#39;</span></div>
+
+
+<div class="viewcode-block" id="GUI.print_one_ticket">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.print_one_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">print_one_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticket</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays information about a single ticket in a popup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ticket (dict): A dictionary representing the ticket.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sg</span><span class="o">.</span><span class="n">popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ticket id: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Name: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Description: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Date: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;date_created&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">State: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Responsible: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;responsible&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Closed Date: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;closed_date&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GUI.raise_error">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.raise_error">[docs]</a>
+    <span class="k">def</span> <span class="nf">raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays an error message in a popup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message (str): The error message to display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sg</span><span class="o">.</span><span class="n">popup_error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GUI.display_issue_popup">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.display_issue_popup">[docs]</a>
+    <span class="k">def</span> <span class="nf">display_issue_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a message in a popup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message (str): The message to display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sg</span><span class="o">.</span><span class="n">popup</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GUI.action_create_ticket">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.action_create_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_create_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a window for creating a ticket and waits for user input.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: A tuple containing ticket information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Create Ticket&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;ID:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Name:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Description:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;description&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Type:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Create&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)],</span>
+        <span class="p">]</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;Create Ticket&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span><span class="p">,</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">):</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Create&#39;</span><span class="p">:</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="GUI.action_assign_ticket">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.action_assign_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_assign_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a window for assigning a ticket and waits for user input.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: A tuple containing ticket ID, assignee name, and state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Assign Ticket&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;ID:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Assigned to:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;assign_name&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;State:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Assign&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)],</span>
+        <span class="p">]</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;Assign Ticket&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span><span class="p">,</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">):</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Assign&#39;</span><span class="p">:</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;assign_name&#39;</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="GUI.action_close_ticket">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.action_close_ticket">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_close_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a window for closing a ticket and waits for user input.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The ID of the ticket to be closed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Close Ticket&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;ID:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)],</span>
+        <span class="p">]</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;Close Ticket&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span><span class="p">,</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">):</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Close&#39;</span><span class="p">:</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="GUI.action_search_keyword">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.action_search_keyword">[docs]</a>
+    <span class="k">def</span> <span class="nf">action_search_keyword</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays a window for searching tickets by keyword and waits for user input.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The keyword to search for.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Search Tickets&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Keyword:&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">InputText</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;keyword&#39;</span><span class="p">)],</span>
+            <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Search&#39;</span><span class="p">),</span> <span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)],</span>
+        <span class="p">]</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;Search Keyword&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span><span class="p">,</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">):</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;Search&#39;</span><span class="p">:</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">]</span></div>
+
+            
+<div class="viewcode-block" id="GUI.display_old_open_tickets">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.display_old_open_tickets">[docs]</a>
+    <span class="k">def</span> <span class="nf">display_old_open_tickets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">three_days_old_tickets</span><span class="p">,</span> <span class="n">ten_days_old_tickets</span><span class="p">,</span> <span class="n">twenty_days_old_tickets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays tickets that are opened for 3-10-20 days in a popup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            three_days_old_tickets (list): A list of tickets opened for 3 days.</span>
+<span class="sd">            ten_days_old_tickets (list): A list of tickets opened for 10 days.</span>
+<span class="sd">            twenty_days_old_tickets (list): A list of tickets opened for 20 days.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Tickets opened for 3 days with new state:&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">three_days_old_tickets</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">three_days_old_tickets</span><span class="p">),</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;three_days_tickets&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Tickets opened for 10 days with assigned or analysis state:&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">ten_days_old_tickets</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ten_days_old_tickets</span><span class="p">),</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;ten_days_tickets&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Tickets opened for 20 days with any state:&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">twenty_days_old_tickets</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">twenty_days_old_tickets</span><span class="p">),</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;twenty_days_tickets&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">)]</span>
+    <span class="p">]</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;Old Open Tickets&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span> <span class="ow">or</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;OK&#39;</span><span class="p">:</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">break</span></div>
+
+            
+<div class="viewcode-block" id="GUI.display_closed_tickets_stats">
+<a class="viewcode-back" href="../GUI.html#GUI.GUI.display_closed_tickets_stats">[docs]</a>
+    <span class="k">def</span> <span class="nf">display_closed_tickets_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">three_days_closed_tickets</span><span class="p">,</span> <span class="n">between_three_ten_days_closed_tickets</span><span class="p">,</span> <span class="n">more_than_ten_days_closed_tickets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Displays statistics about closed tickets in a popup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            three_days_closed_tickets (list): A list of tickets closed within 3 days.</span>
+<span class="sd">            between_three_ten_days_closed_tickets (list): A list of tickets closed between 3 and 10 days.</span>
+<span class="sd">            more_than_ten_days_closed_tickets (list): A list of tickets closed after 10 days.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Tickets closed within 3 days:&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">three_days_closed_tickets</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">three_days_closed_tickets</span><span class="p">),</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;three_days_closed_tickets&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Tickets closed between 3 and 10 days:&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">between_three_ten_days_closed_tickets</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">between_three_ten_days_closed_tickets</span><span class="p">),</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;between_three_ten_days_closed_tickets&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Tickets closed after 10 days:&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">more_than_ten_days_closed_tickets</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">more_than_ten_days_closed_tickets</span><span class="p">),</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;more_than_ten_days_closed_tickets&#39;</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">)]</span>
+    <span class="p">]</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s1">&#39;Closed Ticket Stats&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="n">sg</span><span class="o">.</span><span class="n">WIN_CLOSED</span> <span class="ow">or</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;OK&#39;</span><span class="p">:</span>
+                <span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">break</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">v5</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, mateus.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

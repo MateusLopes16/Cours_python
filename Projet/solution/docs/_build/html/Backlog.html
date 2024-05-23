@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Backlog module &#8212; v5 5 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=d5d7d944"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-Backlog">
+<span id="backlog-module"></span><h1>Backlog module<a class="headerlink" href="#module-Backlog" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Backlog.Backlog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Backlog.</span></span><span class="sig-name descname"><span class="pre">Backlog</span></span><a class="reference internal" href="_modules/Backlog.html#Backlog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class representing a backlog of tickets.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Backlog.Backlog.backlog">
+<span class="sig-name descname"><span class="pre">backlog</span></span><a class="headerlink" href="#Backlog.Backlog.backlog" title="Link to this definition">¶</a></dt>
+<dd><p>A list containing all open tickets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Backlog.Backlog.closed_backlog">
+<span class="sig-name descname"><span class="pre">closed_backlog</span></span><a class="headerlink" href="#Backlog.Backlog.closed_backlog" title="Link to this definition">¶</a></dt>
+<dd><p>A list containing all closed tickets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.close_ticket">
+<span class="sig-name descname"><span class="pre">close_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">close_ticket</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.close_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.close_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Closes a ticket with the specified ID.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The closed ticket, if found, otherwise an empty dictionary.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.create_ticket">
+<span class="sig-name descname"><span class="pre">create_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticket</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.create_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.create_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a new ticket and adds it to the backlog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ticket</strong> (<em>dict</em>) – A dictionary representing the ticket to be created.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.get_all_tickets">
+<span class="sig-name descname"><span class="pre">get_all_tickets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.get_all_tickets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.get_all_tickets" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves all tickets from the backlog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list containing all open tickets.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.get_closed_tickets_between_days">
+<span class="sig-name descname"><span class="pre">get_closed_tickets_between_days</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_days</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.get_closed_tickets_between_days"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.get_closed_tickets_between_days" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves closed tickets from the closed backlog within a range of days.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_days</strong> (<em>int</em>) – The minimum number of days since the ticket was closed.</p></li>
+<li><p><strong>max_days</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of days since the ticket was closed (default: None).
+If provided, only tickets closed within this range (inclusive of both ends) will be retrieved.
+If None, tickets closed at least min_days ago will be retrieved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing closed tickets that meet the specified criteria.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If max_days is None, the function retrieves tickets closed at least min_days ago without an upper limit.
+Otherwise, it retrieves tickets closed within the range [min_days, max_days].</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.get_open_tickets_by_state_and_date">
+<span class="sig-name descname"><span class="pre">get_open_tickets_by_state_and_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['analysis',</span> <span class="pre">'assigned',</span> <span class="pre">'solved',</span> <span class="pre">'in_deliver']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.get_open_tickets_by_state_and_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.get_open_tickets_by_state_and_date" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves all tickets from the backlog older than a certain number of days.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>days</strong> (<em>int</em>) – The number of days.</p></li>
+<li><p><strong>states</strong> (<em>list</em>) – The list of states to filter the tickets.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing all open tickets older than the specified number of days in a certain state.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.remove_ticket">
+<span class="sig-name descname"><span class="pre">remove_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticket_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.remove_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.remove_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Removes a ticket with the specified ID from the backlog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ticket_id</strong> (<em>int</em>) – The ID of the ticket to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Backlog.Backlog.update_ticket">
+<span class="sig-name descname"><span class="pre">update_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticket</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Backlog.html#Backlog.update_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Backlog.Backlog.update_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Updates an existing ticket in the backlog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ticket</strong> (<em>dict</em>) – A dictionary representing the updated ticket.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">v5</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, mateus.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/Backlog.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

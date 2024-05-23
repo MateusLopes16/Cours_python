@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tms &#8212; v5 5 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=d5d7d944"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for Tms</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<div class="viewcode-block" id="Tms">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms">[docs]</a>
+<span class="k">class</span> <span class="nc">Tms</span><span class="p">:</span>
+<span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Ticket Management System class.</span>
+
+<span class="sd">    This class handles various operations related to ticket management.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        backlog_manager: The object managing the backlog.</span>
+<span class="sd">        interface: The interface object for user interaction.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">backlog_manager</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the Ticket Management System.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            backlog_manager: The object managing the backlog.</span>
+<span class="sd">            interface: The interface object for user interaction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span> <span class="o">=</span> <span class="n">backlog_manager</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span> <span class="o">=</span> <span class="n">interface</span>
+
+<div class="viewcode-block" id="Tms.create_ticket">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.create_ticket">[docs]</a>
+     <span class="k">def</span> <span class="nf">create_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new ticket.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            id (str): The ID of the ticket.</span>
+<span class="sd">            name (str): The name of the ticket.</span>
+<span class="sd">            description (str): The description of the ticket.</span>
+<span class="sd">            type (str): The type of the ticket.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: A dictionary representing the created ticket.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="n">validTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PR&quot;</span><span class="p">,</span> <span class="s2">&quot;IR&quot;</span><span class="p">]</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nb">type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">validTypes</span><span class="p">):</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Type is not valid. Please enter PR or IR&quot;</span><span class="p">)</span>
+               <span class="k">return</span> <span class="p">{}</span>
+          <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^Case-\d\d\d$&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">)):</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">raise_error</span><span class="p">(</span><span class="s2">&quot;ID is not in format Case-XXX where X represents a digit.&quot;</span><span class="p">)</span>
+               <span class="k">return</span> <span class="p">{}</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">description</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">raise_error</span><span class="p">(</span><span class="s2">&quot;One or more fields are empty, please fill all the details.&quot;</span><span class="p">)</span>
+               <span class="k">return</span> <span class="p">{}</span>
+          <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^\w+$&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)):</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">raise_error</span><span class="p">(</span><span class="s2">&quot;Name is not alphanumeric.&quot;</span><span class="p">)</span>
+               <span class="k">return</span> <span class="p">{}</span>
+          <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_all_tickets</span><span class="p">():</span>
+               <span class="k">if</span> <span class="n">ticket</span> <span class="ow">and</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">id</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Ticket already exists&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="p">{}</span>
+          <span class="n">ticket</span> <span class="o">=</span> <span class="p">{</span>
+              <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+              <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+              <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+              <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span>
+              <span class="s1">&#39;date_created&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">),</span>
+              <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;new&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;responsible&#39;</span><span class="p">:</span> <span class="s1">&#39;L1&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;closed_date&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+          <span class="p">}</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">create_ticket</span><span class="p">(</span><span class="n">ticket</span><span class="p">)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Create ticket </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
+          <span class="k">return</span> <span class="n">ticket</span></div>
+
+
+<div class="viewcode-block" id="Tms.close_ticket">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.close_ticket">[docs]</a>
+     <span class="k">def</span> <span class="nf">close_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">case_id</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Closes the specified ticket.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            case_id (str): The ID of the ticket to close.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: A dictionary representing the closed ticket.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_all_tickets</span><span class="p">():</span>
+               <span class="k">if</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">case_id</span> <span class="ow">and</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;responsible&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;L1&quot;</span><span class="p">:</span>
+                    <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;closed&quot;</span>
+                    <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;closed_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">close_ticket</span><span class="p">(</span><span class="n">ticket</span><span class="p">)</span>
+               <span class="k">elif</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">case_id</span> <span class="ow">and</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;responsible&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;L1&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Only L1 can close the ticket&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="p">{}</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Invalid id: ticket not found&quot;</span><span class="p">)</span>
+          <span class="k">return</span> <span class="p">{}</span></div>
+
+
+<div class="viewcode-block" id="Tms.assign_ticket">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.assign_ticket">[docs]</a>
+     <span class="k">def</span> <span class="nf">assign_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">case_id</span><span class="p">,</span> <span class="n">case_assign</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assigns the specified ticket to an assignee.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            case_id (str): The ID of the ticket.</span>
+<span class="sd">            case_assign (str): The assignee of the ticket.</span>
+<span class="sd">            state (str): The state of the ticket.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the ticket was successfully assigned, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="n">validStates</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;assigned&quot;</span><span class="p">,</span> <span class="s2">&quot;solved&quot;</span><span class="p">,</span> <span class="s2">&quot;in_deliver&quot;</span><span class="p">,</span> <span class="s2">&quot;closed&quot;</span><span class="p">]</span>
+          <span class="n">validOwners</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;L1&quot;</span><span class="p">,</span> <span class="s2">&quot;L2&quot;</span><span class="p">,</span> <span class="s2">&quot;L3&quot;</span><span class="p">]</span>
+
+          <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">validStates</span><span class="p">):</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;State is not valid. Please enter analysis, assigned, solved, in_deliver, or closed&quot;</span><span class="p">)</span>
+               <span class="k">return</span> <span class="kc">False</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">case_assign</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">validOwners</span><span class="p">):</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Assignee is not valid. Please enter L1, L2, or L3&quot;</span><span class="p">)</span>
+               <span class="k">return</span> <span class="kc">False</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Assign ticket </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case_id</span><span class="p">,</span><span class="n">case_assign</span><span class="p">))</span>
+          <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_all_tickets</span><span class="p">():</span>
+               <span class="k">if</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">case_id</span><span class="p">:</span>
+                    <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+                    <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;responsible&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">case_assign</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">update_ticket</span><span class="p">(</span><span class="n">ticket</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Invalid id </span><span class="si">{}</span><span class="s2"> : ticket does not exists&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case_id</span><span class="p">))</span>
+          <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Tms.print_one_ticket">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.print_one_ticket">[docs]</a>
+     <span class="k">def</span> <span class="nf">print_one_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">case_id</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prints information about the specified ticket.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            case_id (str): The ID of the ticket to print.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the ticket was found and printed, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_all_tickets</span><span class="p">():</span>
+               <span class="k">if</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">case_id</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">print_one_ticket</span><span class="p">(</span><span class="n">ticket</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Invalid id: ticket not found&quot;</span><span class="p">)</span>
+          <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Tms.search_tickets">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.search_tickets">[docs]</a>
+     <span class="k">def</span> <span class="nf">search_tickets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for tickets based on the provided keyword.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            keyword (str): The keyword to search for.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if at least one ticket matching the keyword was found, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+          <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_all_tickets</span><span class="p">():</span>
+               <span class="k">if</span> <span class="p">(</span><span class="n">keyword</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="ow">or</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="ow">or</span>
+                    <span class="n">keyword</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;date_created&#39;</span><span class="p">])</span> <span class="ow">or</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;responsible&#39;</span><span class="p">]):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_one_ticket</span><span class="p">(</span><span class="n">ticket</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+                    <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+          <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Keyword </span><span class="si">{}</span><span class="s2"> not found&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">keyword</span><span class="p">))</span>
+          <span class="k">return</span> <span class="n">found</span></div>
+
+     
+<div class="viewcode-block" id="Tms.get_old_open_tickets">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.get_old_open_tickets">[docs]</a>
+     <span class="k">def</span> <span class="nf">get_old_open_tickets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">          Retrieves tickets that are opened for 3-10-20 days.</span>
+<span class="sd">          &quot;&quot;&quot;</span>
+          <span class="n">three_days_old_tickets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_open_tickets_by_state_and_date</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">])</span>
+          <span class="n">ten_days_old_tickets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_open_tickets_by_state_and_date</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;assigned&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">])</span>
+          <span class="n">twenty_days_old_tickets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_open_tickets_by_state_and_date</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+          
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_old_open_tickets</span><span class="p">(</span><span class="n">three_days_old_tickets</span><span class="p">,</span> <span class="n">ten_days_old_tickets</span><span class="p">,</span> <span class="n">twenty_days_old_tickets</span><span class="p">)</span></div>
+
+          
+<div class="viewcode-block" id="Tms.get_closed_tickets_between_days">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.get_closed_tickets_between_days">[docs]</a>
+     <span class="k">def</span> <span class="nf">get_closed_tickets_between_days</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">          Retrieves statistics about closed tickets.</span>
+<span class="sd">          &quot;&quot;&quot;</span>
+          <span class="n">three_days_closed_tickets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_closed_tickets_between_days</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+          <span class="n">between_three_ten_days_closed_tickets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_closed_tickets_between_days</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+          <span class="n">more_than_ten_days_closed_tickets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backlog_manager</span><span class="o">.</span><span class="n">get_closed_tickets_between_days</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+          <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_closed_tickets_stats</span><span class="p">(</span><span class="n">three_days_closed_tickets</span><span class="p">,</span> <span class="n">between_three_ten_days_closed_tickets</span><span class="p">,</span> <span class="n">more_than_ten_days_closed_tickets</span><span class="p">)</span></div>
+
+     
+<div class="viewcode-block" id="Tms.run">
+<a class="viewcode-back" href="../Tms.html#Tms.Tms.run">[docs]</a>
+     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Runs the Ticket Management System.</span>
+
+<span class="sd">        This method continuously prompts the user for input and performs actions based on the chosen option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+          <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+               <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">choose_option</span><span class="p">()</span>
+               <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">action_create_ticket</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">create_ticket</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+                    <span class="nb">id</span><span class="p">,</span> <span class="n">assign_name</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">action_assign_ticket</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">assign_ticket</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">assign_name</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span>
+                    <span class="nb">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">action_close_ticket</span><span class="p">()</span>
+                    <span class="n">issue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">close_ticket</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">issue</span> <span class="o">!=</span> <span class="p">{}:</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Ticket closed successfully!&quot;</span><span class="p">)</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span>
+                    <span class="n">keyword</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">action_search_keyword</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">search_tickets</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span>
+                    <span class="nb">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">action_close_ticket</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_one_ticket</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;6&#39;</span><span class="p">:</span>
+                    <span class="k">break</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;7&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_old_open_tickets</span><span class="p">()</span>
+               <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;8&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_closed_tickets_between_days</span><span class="p">()</span>
+               <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">display_issue_popup</span><span class="p">(</span><span class="s2">&quot;Invalid option&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">v5</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, mateus.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

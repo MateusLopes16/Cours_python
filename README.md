@@ -15,6 +15,7 @@ Pour installer Python :
 ### Éditeur de code
 
 Il existe différents éditeurs de code. Vous pouvez également coder sur Bloc-notes ou sur un terminal. Dans ce cours, nous utilisons Visual Studio Code (VSCode).
+Pour la partie IA, on utilisera Jupyter Notebook
 
 #### Installation de VSCode
 
@@ -65,6 +66,21 @@ Pour exécuter le code :
 - Cliquez sur le bouton "Run Python code" en haut à droite de la fenêtre.
 - Utilisez un terminal : Entrez `python nom_fichier` et appuyez sur Entrée.
 
-N'hésitez pas à explorer le cours et à poser des questions si nécessaire !
+## Organisation des Dossiers
 
-[Premier cours](./Cours/1_Les%20types%20simples.md)
+Dans ce projet, nous avons trois dossiers principaux :
+
+- Cours_base_python : Ce dossier reprend l'ensemble des fonctionnalités principales de Python depuis le début.
+    - **cours** : Contient les cours.
+    - **exercices** : Contient les exercices associées au cours
+    - **Projets** : Contient un projet d'exemple sous différentes versions
+
+- Projet : Il s'agit d'un projet réalisé pendant un cours de mon semestre 6. Il comprend toutes les parties vues dans **Cours_base_python**. Ce dossier est divisé en trois parties :
+    - **cours** : Contient les cours.
+    - **exercices** : Contient l'énoncé du projet avec le programme de départ.
+    - **solution** : Contient la solution finale, corrigée.
+    
+- IA : Ce dossier contient tous les cours et feuilles de TP proposés par la ressource `"Base de l'IA"`.
+
+
+[Premier cours base Python](./Cours/1_Les%20types%20simples.md)

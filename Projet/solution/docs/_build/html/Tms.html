@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tms module &#8212; v5 5 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=d5d7d944"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-Tms">
+<span id="tms-module"></span><h1>Tms module<a class="headerlink" href="#module-Tms" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Tms.Tms">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Tms.</span></span><span class="sig-name descname"><span class="pre">Tms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backlog_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Ticket Management System class.</p>
+<p>This class handles various operations related to ticket management.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tms.Tms.backlog_manager">
+<span class="sig-name descname"><span class="pre">backlog_manager</span></span><a class="headerlink" href="#Tms.Tms.backlog_manager" title="Link to this definition">¶</a></dt>
+<dd><p>The object managing the backlog.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tms.Tms.interface">
+<span class="sig-name descname"><span class="pre">interface</span></span><a class="headerlink" href="#Tms.Tms.interface" title="Link to this definition">¶</a></dt>
+<dd><p>The interface object for user interaction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.assign_ticket">
+<span class="sig-name descname"><span class="pre">assign_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_assign</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.assign_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.assign_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Assigns the specified ticket to an assignee.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>case_id</strong> (<em>str</em>) – The ID of the ticket.</p></li>
+<li><p><strong>case_assign</strong> (<em>str</em>) – The assignee of the ticket.</p></li>
+<li><p><strong>state</strong> (<em>str</em>) – The state of the ticket.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the ticket was successfully assigned, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.close_ticket">
+<span class="sig-name descname"><span class="pre">close_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.close_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.close_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Closes the specified ticket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>case_id</strong> (<em>str</em>) – The ID of the ticket to close.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary representing the closed ticket.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.create_ticket">
+<span class="sig-name descname"><span class="pre">create_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.create_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.create_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a new ticket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – The ID of the ticket.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the ticket.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – The description of the ticket.</p></li>
+<li><p><strong>type</strong> (<em>str</em>) – The type of the ticket.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary representing the created ticket.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.get_closed_tickets_between_days">
+<span class="sig-name descname"><span class="pre">get_closed_tickets_between_days</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.get_closed_tickets_between_days"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.get_closed_tickets_between_days" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves statistics about closed tickets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.get_old_open_tickets">
+<span class="sig-name descname"><span class="pre">get_old_open_tickets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.get_old_open_tickets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.get_old_open_tickets" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves tickets that are opened for 3-10-20 days.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.print_one_ticket">
+<span class="sig-name descname"><span class="pre">print_one_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.print_one_ticket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.print_one_ticket" title="Link to this definition">¶</a></dt>
+<dd><p>Prints information about the specified ticket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>case_id</strong> (<em>str</em>) – The ID of the ticket to print.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the ticket was found and printed, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.run" title="Link to this definition">¶</a></dt>
+<dd><p>Runs the Ticket Management System.</p>
+<p>This method continuously prompts the user for input and performs actions based on the chosen option.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tms.Tms.search_tickets">
+<span class="sig-name descname"><span class="pre">search_tickets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tms.html#Tms.search_tickets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tms.Tms.search_tickets" title="Link to this definition">¶</a></dt>
+<dd><p>Searches for tickets based on the provided keyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword to search for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if at least one ticket matching the keyword was found, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">v5</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, mateus.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/Tms.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
