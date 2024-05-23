@@ -11,7 +11,7 @@ Tous les langages de programmation comportent des fonctions natives plus-ou-moin
 
 Dans Python, ces fonctions sont intégrées dans le langage et peuvent être utilisées sans avoir besoin de les définir.
 
-Toutes les fonctions sont répertoriées dans la documentation officielle accessible via https://docs.python.org/fr/3/library/functions.html
+Toutes les fonctions sont répertoriées dans la documentation officielle accessible via [La documentation officielle](https://docs.python.org/fr/3/library/functions.html)
 
 [Cours Précédent](../Cours/4_Operations%20sur%20chaines.md) | 
 [Cours suivant](../Cours/6_Conditions.md)

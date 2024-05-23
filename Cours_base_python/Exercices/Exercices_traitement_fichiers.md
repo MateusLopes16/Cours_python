@@ -126,5 +126,5 @@ Modifiez le programme précédent pour qu'il ajoute la phrase saisie par l'utili
   ```
 </details>
 
-[Cours Précédent](../Cours/14_Gestion%20des%20erreurs%20et%20des%20exceptions.md) | 
+[Cours Précédent](../Cours/15_Traitement%20de%20fichiers.md) | 
 [Cours suivant](../Cours/16_Les%20test%20unitaires.md)

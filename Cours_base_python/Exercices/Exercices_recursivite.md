@@ -104,5 +104,5 @@ La suite de Fibonacci est une séquence de nombres dans laquelle chaque nombre e
   ```
 </details>
 
-[Cours Précédent](../Cours/11_Les%20Boucles.md) | 
-[Cours Suivant](../Cours/12_La%20récursivité.md)
+[Cours Précédent](../Cours/12_La%20récursivité.md) | 
+[Cours Suivant](../Cours/13_Les%20classes.md)

@@ -135,5 +135,5 @@ print(mon_chat.aboie()) # provoque une erreur car mon_chat n'est pas un chien
 - Programmer avec des classes, on appelle ça l'orienté objet.
 
 [Cours Précédent](../Cours/12_La%20récursivité.md) | 
-EX | 
+[Page d'exercices](../Exercices/Exercices_classes.md) | 
 [Cours suivant](../Cours/14_Gestion%20des%20erreurs%20et%20des%20exceptions.md)

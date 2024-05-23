@@ -1,4 +1,4 @@
-# Feuille d'Exercices : Les Fonctions en Python
+# Feuille d'Exercices : Les Portes Logiques
 
 ## Exercice 1 : Fonction de vérification de multiples
 Écrivez une fonction ``est_multiple(n)`` qui prend un seul paramètre, ``n``, et qui renvoie **True** si le nombre est un multiple de 10 ou de 3, et **False** sinon.
