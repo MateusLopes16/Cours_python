@@ -1,0 +1,6 @@
+Première ligne de texte.
+Deuxième ligne de texte.
+Troisième ligne de texte.
+Quatrième ligne de texte.
+Cinquième ligne de texte.
+Sixième ligne de texte.

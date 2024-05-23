@@ -1,0 +1,5 @@
+Le Python est un langage de programmation.
+Le Python peut être utilisé pour le développement web.
+Le Python est populaire pour l'analyse de données.
+Le Python est également utilisé pour l'intelligence artificielle.
+Python est facile à apprendre et à utiliser.

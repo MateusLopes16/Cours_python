@@ -66,3 +66,5 @@ Pour exécuter le code :
 - Utilisez un terminal : Entrez `python nom_fichier` et appuyez sur Entrée.
 
 N'hésitez pas à explorer le cours et à poser des questions si nécessaire !
+
+[Premier cours](./Cours/1_Les%20types%20simples.md)
