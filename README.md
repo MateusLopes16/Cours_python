@@ -2,17 +2,17 @@
 
 Dans ce projet, nous avons trois dossiers principaux :
 
-- Cours_base_python : Ce dossier reprend l'ensemble des fonctionnalités principales de Python depuis le début. (Cours lycée)
+- Cours_base_python : Ce dossier reprend l'ensemble des fonctionnalités principales de Python depuis le début. `(Cours lycée)`
     - **cours** : Contient les cours.
     - **exercices** : Contient les exercices associées au cours
     - **Projets** : Contient un projet d'exemple sous différentes versions
 
-- Projet : Un exemple de projet assez simple, enonce et soution : (Cours 1ere année BUT)
+- Projet : Un exemple de projet assez simple, enonce et soution : `(Cours 1ere année BUT)`
     - **cours** : Contient les cours.
     - **exercices** : Contient l'énoncé du projet avec le programme de départ.
     - **solution** : Contient la solution finale, corrigée.
     
-- IA : Contient des cours et des TP sur l'IA. Rien est poussé a l'extreme, ici on survole chaque forme d'IA (texte, image, video ...) (Cours 2eme année BUT)
+- IA : Contient des cours et des TP sur l'IA. Rien est poussé a l'extreme, ici on survole chaque forme d'IA (texte, image, video ...) `(Cours 2eme année BUT)`
     - **cours** : Contient les cours d'IA.
     - **exercices** : Contient chaque feuille de TP. (sans correction)
 
