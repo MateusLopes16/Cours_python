@@ -1,3 +1,21 @@
+# Organisation des Dossiers
+
+Dans ce projet, nous avons trois dossiers principaux :
+
+- Cours_base_python : Ce dossier reprend l'ensemble des fonctionnalités principales de Python depuis le début.
+    - **cours** : Contient les cours.
+    - **exercices** : Contient les exercices associées au cours
+    - **Projets** : Contient un projet d'exemple sous différentes versions
+
+- Projet : Un exemple de projet assez simple, enonce et soution :
+    - **cours** : Contient les cours.
+    - **exercices** : Contient l'énoncé du projet avec le programme de départ.
+    - **solution** : Contient la solution finale, corrigée.
+    
+- IA : Contient des cours et des TP sur l'IA. Rien est poussé a l'extreme, ici on survole chaque forme d'IA (texte, image, video ...)
+    - **cours** : Contient les cours d'IA.
+    - **exercices** : Contient chaque feuille de TP. (sans correction)
+
 # Cours Python
 
 Ce cours présente 18 leçons sur les notions importantes de Python. Chacune d'elles comprend une page de cours et potentiellement des exercices. Tout le cours est disponible à l'adresse [suivante](https://github.com/Cmoitchoupi/Cours_python).
@@ -71,21 +89,6 @@ ou
 
 - Utilisez un terminal : Entrez `python nom_fichier` et appuyez sur Entrée.
 
-## Organisation des Dossiers
-
-Dans ce projet, nous avons trois dossiers principaux :
-
-- Cours_base_python : Ce dossier reprend l'ensemble des fonctionnalités principales de Python depuis le début.
-    - **cours** : Contient les cours.
-    - **exercices** : Contient les exercices associées au cours
-    - **Projets** : Contient un projet d'exemple sous différentes versions
-
-- Projet : Il s'agit d'un projet réalisé pendant un cours de mon semestre 6. Il comprend toutes les parties vues dans **Cours_base_python**. Ce dossier est divisé en trois parties :
-    - **cours** : Contient les cours.
-    - **exercices** : Contient l'énoncé du projet avec le programme de départ.
-    - **solution** : Contient la solution finale, corrigée.
-    
-- IA : Ce dossier contient tous les cours et feuilles de TP proposés par la ressource `"Base de l'IA"`.
 
 
 [Premier cours base Python](./Cours_base_python/Cours/1_Les%20types%20simples.md)
