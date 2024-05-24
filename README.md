@@ -7,7 +7,7 @@ Dans ce projet, nous avons trois dossiers principaux :
     - **exercices** : Contient les exercices associées au cours
     - **Projets** : Contient un projet d'exemple sous différentes versions
 
-- Projet : Un exemple de projet assez simple, enonce et soution : `(Cours 1ere année BUT)`
+- Projet : Un exemple de projet assez simple mais interressant pour se familiariser avec tous les concepts de python, enonce et soution : `(Cours 1ere année BUT)`
     - **cours** : Contient les cours.
     - **exercices** : Contient l'énoncé du projet avec le programme de départ.
     - **solution** : Contient la solution finale, corrigée.
