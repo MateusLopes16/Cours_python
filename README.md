@@ -16,6 +16,9 @@ Dans ce projet, nous avons trois dossiers principaux :
     - **cours** : Contient les cours d'IA.
     - **exercices** : Contient chaque feuille de TP. (sans correction)
 
+
+Le dossier VSCode contient une aide pour prendre en main les raccourcis de l'IDE
+
 # Cours Python
 
 Ce cours présente 18 leçons sur les notions importantes de Python. Chacune d'elles comprend une page de cours et potentiellement des exercices. Tout le cours est disponible à l'adresse [suivante](https://github.com/Cmoitchoupi/Cours_python).
