@@ -73,4 +73,5 @@ voici une liste d'extensions sympas qui peuvent être utiles dans certains cas
 - `live server` : pour les applis web permet de lancer un serveur pour render la page
 - `github copilot` : ia de dev qui s'inspire du code produit pour proposer de l'autocomplétion et des parties de code (existe aussi en version chat) (non recommender au débutants parce que il fait tout et ca permet pas d'apprendre)
 - `todo tree` : permet de mieux identifier les tags TODO dans le code
+- `dev container ou container tools` : deux extension cools pour gerer docker
 
