@@ -60,3 +60,16 @@
 - `Ctrl + Shift + U` : ouvrir la sortie
 - `Ctrl + Tab` : basculer entre les onglets ouverts
 - `Ctrl + K, Ctrl + S` : ouvrir les préférences de raccourcis clavier
+
+# Les extension
+
+voici une liste d'extensions sympas qui peuvent être utiles dans certains cas
+
+- `error lens` : mieux voir lles erreurs et warnings dans le code
+- `vscode icons` : melleure esthetique des icones de fichier
+- `recommended language` : les extensions recomandées par vscode pour le langage actuel (en bas a gauche dans la popup)
+- `live share` : permet de coder a plusieurs sur le même projet si besoin (chaque utilisateur doit avoir l'extension sur son poste)
+- `live server` : pour les applis web permet de lancer un serveur pour render la page
+- `github copilot` : ia de dev qui s'inspire du code produit pour proposer de l'autocomplétion et des parties de code (existe aussi en version chat) (non recommender au débutants parce que il fait tout et ca permet pas d'apprendre)
+- `todo tree` : permet de mieux identifier les tags TODO dans le code
+
