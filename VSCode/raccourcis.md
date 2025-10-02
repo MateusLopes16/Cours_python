@@ -48,6 +48,7 @@
 - `Ctrl + N` : ouvrir un nouveau fichier
 - `Ctrl + Shift + N` : ouvrir une nouvelle fenêtre
 - `Ctrl + O` : ouvrir un fichier
+- `Ctrl + K **relacher** O` : ouvrir un dossier
 
 ## Gestion des vues et des fenêtres
 
